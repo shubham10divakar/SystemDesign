@@ -1,7 +1,7 @@
 # <Paper title>
 
 - **Authors / Year / Venue:**
-- **PDF:** [../papers/<file>.pdf](../papers/<file>.pdf)
+- **PDF:** [../../papers/<era>/<file>.pdf](../../papers/<era>/<file>.pdf)
 - **Date read:**
 - **Passes done:** ☐ 1st (gist) ☐ 2nd (argument) ☐ 3rd (re-derive)
 

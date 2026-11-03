@@ -12,122 +12,122 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPERS = ROOT / "papers"
 
-# (filename, [urls...])
+# (era-folder/filename, [urls...])
 CANON = [
     # Era 1
-    ("1961-little-queuing-formula-L-lambda-W.pdf", []),  # paywalled (INFORMS); add manually
-    ("1967-amdahl-single-processor-approach.pdf", [
+    ("era-1-foundations-1960s-70s/1961-little-queuing-formula-L-lambda-W.pdf", []),  # paywalled (INFORMS); add manually
+    ("era-1-foundations-1960s-70s/1967-amdahl-single-processor-approach.pdf", [
         "https://www-inst.eecs.berkeley.edu/~n252/paper/Amdahl.pdf"]),
-    ("1965-dijkstra-concurrent-programming-control.pdf", [
+    ("era-1-foundations-1960s-70s/1965-dijkstra-concurrent-programming-control.pdf", [
         "https://rust-class.org/static/classes/class19/dijkstra.pdf"]),
-    ("1968-dijkstra-THE-multiprogramming-system.pdf", [
+    ("era-1-foundations-1960s-70s/1968-dijkstra-THE-multiprogramming-system.pdf", [
         "https://www.cs.utexas.edu/users/EWD/ewd01xx/EWD196.PDF"]),
-    ("1968-conway-how-do-committees-invent.pdf", [
+    ("era-1-foundations-1960s-70s/1968-conway-how-do-committees-invent.pdf", [
         "https://www.melconway.com/Home/pdf/committees.pdf"]),
-    ("1968-denning-working-set-model.pdf", [
+    ("era-1-foundations-1960s-70s/1968-denning-working-set-model.pdf", [
         "https://denninginstitute.com/pjd/PUBS/WSModel_1968.pdf"]),
-    ("1970-codd-relational-model.pdf", [
+    ("era-1-foundations-1960s-70s/1970-codd-relational-model.pdf", [
         "https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf"]),
-    ("1972-parnas-decomposing-systems-into-modules.pdf", [
+    ("era-1-foundations-1960s-70s/1972-parnas-decomposing-systems-into-modules.pdf", [
         "https://www.win.tue.nl/~wstomv/edu/2ip30/references/criteria_for_modularization.pdf"]),
-    ("1974-cerf-kahn-packet-network-intercommunication.pdf", [
+    ("era-1-foundations-1960s-70s/1974-cerf-kahn-packet-network-intercommunication.pdf", [
         "https://www.cs.princeton.edu/courses/archive/fall06/cos561/papers/cerf74.pdf"]),
-    ("1974-ritchie-thompson-unix-time-sharing.pdf", [
+    ("era-1-foundations-1960s-70s/1974-ritchie-thompson-unix-time-sharing.pdf", [
         "https://dsf.berkeley.edu/cs262/unix.pdf"]),
-    ("1978-lamport-time-clocks-ordering.pdf", [
+    ("era-1-foundations-1960s-70s/1978-lamport-time-clocks-ordering.pdf", [
         "https://lamport.azurewebsites.net/pubs/time-clocks.pdf"]),
-    ("1978-gray-notes-on-database-operating-systems.pdf", [
+    ("era-1-foundations-1960s-70s/1978-gray-notes-on-database-operating-systems.pdf", [
         "https://jimgray.azurewebsites.net/papers/dbos.pdf",
         "http://jimgray.azurewebsites.net/papers/DBOS.pdf"]),
     # Era 2
-    ("1981-gray-transaction-concept.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1981-gray-transaction-concept.pdf", [
         "https://jimgray.azurewebsites.net/papers/thetransactionconcept.pdf"]),
-    ("1982-lamport-shostak-pease-byzantine-generals.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1982-lamport-shostak-pease-byzantine-generals.pdf", [
         "https://lamport.azurewebsites.net/pubs/byz.pdf"]),
-    ("1983-lampson-hints-for-computer-system-design.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1983-lampson-hints-for-computer-system-design.pdf", [
         "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/acrobat-17.pdf"]),
-    ("1984-saltzer-reed-clark-end-to-end-arguments.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1984-saltzer-reed-clark-end-to-end-arguments.pdf", [
         "https://web.mit.edu/Saltzer/www/publications/endtoend/endtoend.pdf"]),
-    ("1984-birrell-nelson-implementing-rpc.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1984-birrell-nelson-implementing-rpc.pdf", [
         "https://web.eecs.umich.edu/~mosharaf/Readings/RPC.pdf"]),
-    ("1985-fischer-lynch-paterson-FLP-impossibility.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1985-fischer-lynch-paterson-FLP-impossibility.pdf", [
         "https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf"]),
-    ("1985-chandy-lamport-distributed-snapshots.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1985-chandy-lamport-distributed-snapshots.pdf", [
         "https://lamport.azurewebsites.net/pubs/chandy.pdf"]),
-    ("1988-jacobson-congestion-avoidance-and-control.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1988-jacobson-congestion-avoidance-and-control.pdf", [
         "https://ee.lbl.gov/papers/congavoid.pdf"]),
-    ("1990-herlihy-wing-linearizability.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1990-herlihy-wing-linearizability.pdf", [
         "https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf"]),
-    ("1990-schneider-state-machine-approach.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1990-schneider-state-machine-approach.pdf", [
         "https://www.cs.cornell.edu/fbs/publications/SMSurvey.pdf"]),
-    ("1994-waldo-note-on-distributed-computing.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1994-waldo-note-on-distributed-computing.pdf", [
         "https://doc.akka.io/docs/misc/smli_tr-94-29.pdf",
         "https://scholar.harvard.edu/files/waldo/files/waldo-94.pdf"]),
-    ("1996-gray-dangers-of-replication.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1996-gray-dangers-of-replication.pdf", [
         "https://dsf.berkeley.edu/cs286/papers/dangers-sigmod1996.pdf",
         "https://jimgray.azurewebsites.net/papers/replicationdangers.pdf"]),
-    ("1997-karger-consistent-hashing.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1997-karger-consistent-hashing.pdf", [
         "https://www.cs.princeton.edu/courses/archive/fall09/cos518/papers/chash.pdf",
         "https://www.akamai.com/site/en/documents/research-paper/consistent-hashing-and-random-trees-distributed-caching-protocols-for-relieving-hot-spots-on-the-world-wide-web-technical-publication.pdf"]),
-    ("1997-fox-cluster-based-scalable-network-services.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1997-fox-cluster-based-scalable-network-services.pdf", [
         "https://people.eecs.berkeley.edu/~brewer/papers/TACC-sosp.pdf"]),
-    ("1999-fox-brewer-harvest-yield.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1999-fox-brewer-harvest-yield.pdf", [
         "https://s3.amazonaws.com/systemsandpapers/papers/FOX_Brewer_99-Harvest_Yield_and_Scalable_Tolerant_Systems.pdf"]),
-    ("1998-lamport-part-time-parliament.pdf", [
+    ("era-2-distributed-theory-1980s-90s/1998-lamport-part-time-parliament.pdf", [
         "https://lamport.azurewebsites.net/pubs/lamport-paxos.pdf"]),
-    ("2001-lamport-paxos-made-simple.pdf", [
+    ("era-2-distributed-theory-1980s-90s/2001-lamport-paxos-made-simple.pdf", [
         "https://lamport.azurewebsites.net/pubs/paxos-simple.pdf"]),
     # Era 3
-    ("2000-brewer-CAP-podc-keynote.pdf", [
+    ("era-3-internet-scale-2000s-10s/2000-brewer-CAP-podc-keynote.pdf", [
         "https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf"]),
-    ("2002-gilbert-lynch-CAP-proof.pdf", [
+    ("era-3-internet-scale-2000s-10s/2002-gilbert-lynch-CAP-proof.pdf", [
         "https://groups.csail.mit.edu/tds/papers/Gilbert/Brewer2.pdf"]),
-    ("2001-brewer-lessons-from-giant-scale-services.pdf", [
+    ("era-3-internet-scale-2000s-10s/2001-brewer-lessons-from-giant-scale-services.pdf", [
         "https://people.eecs.berkeley.edu/~brewer/Giant.pdf"]),
-    ("2003-ghemawat-GFS.pdf", [
+    ("era-3-internet-scale-2000s-10s/2003-ghemawat-GFS.pdf", [
         "https://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf"]),
-    ("2004-dean-ghemawat-MapReduce.pdf", [
+    ("era-3-internet-scale-2000s-10s/2004-dean-ghemawat-MapReduce.pdf", [
         "https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf"]),
-    ("2006-chang-Bigtable.pdf", [
+    ("era-3-internet-scale-2000s-10s/2006-chang-Bigtable.pdf", [
         "https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf"]),
-    ("2006-burrows-Chubby.pdf", [
+    ("era-3-internet-scale-2000s-10s/2006-burrows-Chubby.pdf", [
         "https://static.googleusercontent.com/media/research.google.com/en//archive/chubby-osdi06.pdf"]),
-    ("2012-corbett-Spanner.pdf", [
+    ("era-3-internet-scale-2000s-10s/2012-corbett-Spanner.pdf", [
         "https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf"]),
-    ("2015-verma-Borg.pdf", [
+    ("era-3-internet-scale-2000s-10s/2015-verma-Borg.pdf", [
         "https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43438.pdf"]),
-    ("2007-decandia-Dynamo.pdf", [
+    ("era-3-internet-scale-2000s-10s/2007-decandia-Dynamo.pdf", [
         "https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf"]),
-    ("2007-hamilton-designing-deploying-internet-scale-services.pdf", [
+    ("era-3-internet-scale-2000s-10s/2007-hamilton-designing-deploying-internet-scale-services.pdf", [
         "https://www.usenix.org/legacy/event/lisa07/tech/full_papers/hamilton/hamilton.pdf"]),
-    ("2007-helland-life-beyond-distributed-transactions.pdf", [
+    ("era-3-internet-scale-2000s-10s/2007-helland-life-beyond-distributed-transactions.pdf", [
         "https://www.cidrdb.org/cidr2007/papers/cidr07p15.pdf"]),
-    ("2009-helland-campbell-building-on-quicksand.pdf", [
+    ("era-3-internet-scale-2000s-10s/2009-helland-campbell-building-on-quicksand.pdf", [
         "https://www.cidrdb.org/cidr2009/Paper_133.pdf"]),
-    ("2011-shapiro-CRDTs.pdf", [
+    ("era-3-internet-scale-2000s-10s/2011-shapiro-CRDTs.pdf", [
         "https://inria.hal.science/inria-00609399/document",
         "https://hal.inria.fr/inria-00609399v1/document"]),
-    ("2013-dean-barroso-tail-at-scale.pdf", [
+    ("era-3-internet-scale-2000s-10s/2013-dean-barroso-tail-at-scale.pdf", [
         "https://www.barroso.org/publications/TheTailAtScale.pdf"]),
-    ("2014-bailis-coordination-avoidance.pdf", [
+    ("era-3-internet-scale-2000s-10s/2014-bailis-coordination-avoidance.pdf", [
         "https://www.vldb.org/pvldb/vol8/p185-bailis.pdf"]),
-    ("2014-ongaro-ousterhout-Raft.pdf", [
+    ("era-3-internet-scale-2000s-10s/2014-ongaro-ousterhout-Raft.pdf", [
         "https://raft.github.io/raft.pdf"]),
-    ("2015-mcsherry-scalability-but-at-what-COST.pdf", [
+    ("era-3-internet-scale-2000s-10s/2015-mcsherry-scalability-but-at-what-COST.pdf", [
         "https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf"]),
     # Era 4
-    ("2014-yuan-simple-testing-prevents-critical-failures.pdf", [
+    ("era-4-failure-science-2014-now/2014-yuan-simple-testing-prevents-critical-failures.pdf", [
         "https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-yuan.pdf"]),
-    ("2017-huang-gray-failure.pdf", [
+    ("era-4-failure-science-2014-now/2017-huang-gray-failure.pdf", [
         "https://www.microsoft.com/en-us/research/wp-content/uploads/2017/06/paper-1.pdf"]),
-    ("2020-hellerstein-alvaro-keeping-CALM.pdf", [
+    ("era-4-failure-science-2014-now/2020-hellerstein-alvaro-keeping-CALM.pdf", [
         "https://arxiv.org/pdf/1901.01930"]),
-    ("2021-bronson-metastable-failures.pdf", [
+    ("era-4-failure-science-2014-now/2021-bronson-metastable-failures.pdf", [
         "https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s11-bronson.pdf"]),
-    ("2022-huang-metastable-failures-in-the-wild.pdf", [
+    ("era-4-failure-science-2014-now/2022-huang-metastable-failures-in-the-wild.pdf", [
         "https://www.usenix.org/system/files/osdi22-huang-lexiang.pdf"]),
     # Method
-    ("2007-keshav-how-to-read-a-paper.pdf", [
+    ("method/2007-keshav-how-to-read-a-paper.pdf", [
         "https://web.stanford.edu/class/ee384m/Handouts/HowtoReadPaper.pdf"]),
 ]
 
@@ -156,6 +156,7 @@ def main() -> int:
     missing = []
     for name, urls in CANON:
         dest = PAPERS / name
+        dest.parent.mkdir(parents=True, exist_ok=True)
         if dest.exists():
             print(f"= {name}")
             continue
